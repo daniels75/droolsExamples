@@ -14,7 +14,7 @@ end
 
 rule "GoodBye"
     when
-        Message( status == Message.GOODBYE, myMessage : message )
+        $message2 : Message( status == Message.GOODBYE, myMessage : message )
     then
-        System.out.println( myMessage );
+        System.out.println( myMessage + " " +  $message2.getMessage());
 end

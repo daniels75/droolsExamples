@@ -22,10 +22,17 @@ public class DroolsIntroduction {
 			KieSession kSession = kContainer.newKieSession("ksession-rules");
 
 			DroolsIntroduction droolsIntroduction = new DroolsIntroduction("Drools");
+			
 			kSession.insert(droolsIntroduction);
 			kSession.insert(new DroolsIntroduction("spring"));
 			kSession.insert(new DroolsIntroduction("Drools"));
 			kSession.fireAllRules();
+			
+			kSession.setGlobal("topicLevel", "Beginner");
+			kSession.insert(new DroolsIntroduction("Drools with Global"));
+			
+			kSession.fireAllRules();
+			
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
@@ -36,6 +43,6 @@ public class DroolsIntroduction {
 	}
 
 	public String introduceYourself() {
-		return "Drools 6.2.0.Final";
+		return "Drools 6.2.0.Final - topic: " + topic;
 	}
 }
