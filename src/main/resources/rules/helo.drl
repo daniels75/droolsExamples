@@ -1,0 +1,8 @@
+package org.daniels.examples;
+
+rule "Drools Introduction"
+when
+$droolsIntro : DroolsIntroduction( topic == "Drools" )
+then
+System.out.println($droolsIntro.introduceYourself());
+end
